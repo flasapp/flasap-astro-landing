@@ -37,13 +37,15 @@ const { title, description } = Astro.props;
     <style>
       :root {
         --_placeholder-bg: linear-gradient(transparent, transparent);
-        --bg-image-main: url("/assets/backgrounds/bg-main-light-800w.jpg");
-        --bg-image-main-curves: url("/assets/backgrounds/bg-main-light.svg");
+        --bg-image-main: url("/assets/backgrounds/bg-main-dark-800w.jpg");
+        --bg-image-main-curves: url("/assets/backgrounds/bg-main-dark.svg");
+        --bg-svg-blend-mode: darken;
+        --bg-blend-mode: lighten;
         --bg-image-subtle-1: var(--_placeholder-bg);
         --bg-image-subtle-2: var(--_placeholder-bg);
         --bg-image-footer: var(--_placeholder-bg);
-        --bg-svg-blend-mode: overlay;
-        --bg-blend-mode: darken;
+        /* --bg-svg-blend-mode: overlay; */
+        /* --bg-blend-mode: darken; */
         --bg-image-aspect-ratio: 2.25;
         --bg-scale: 1.68;
         --bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
@@ -73,7 +75,7 @@ const { title, description } = Astro.props;
       @media (min-width: 50em) {
         :root {
           --bg-scale: 1;
-          --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");
+          --bg-image-main: url("/assets/backgrounds/bg-main-dark-800w.jpg");
         }
         :root.theme-dark {
           --bg-image-main: url("/assets/backgrounds/bg-main-dark-1440w.jpg");

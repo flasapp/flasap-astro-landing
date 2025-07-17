@@ -114,15 +114,14 @@ const EXTA_ITEMS = [
         >
           <div class="roles">
             <Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-            <Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-            <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+            <Pill><Icon icon="microphone-stage" size="1.33em" /> Tech-Lead</Pill
+            >
+            <Pill><Icon icon="strategy" size="1.33em" /> Project Manager</Pill>
           </div>
         </Hero>
         <div class="animated-border">
           <img
             alt="Flavio Sacco smiling in a red plaid shirt and tortoise shell glasses"
-            width="480"
-            height="620"
             style="border-radius: 12px"
             src="/assets/flasap-image-web.jpeg"
           />
@@ -134,9 +133,7 @@ const EXTA_ITEMS = [
 
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
-        <header
-          class="section-header stack gap-2 lg:gap-4 fade-from-right-scroll"
-        >
+        <header class="section-header stack gap-2 lg:gap-4 fade-in">
           <h3>Selected Work</h3>
           <p>
             Take a look below at some of my featured work for clients from the
@@ -144,11 +141,11 @@ const EXTA_ITEMS = [
           </p>
         </header>
 
-        <div class="gallery">
+        <div class="gallery portfolio-container">
           <Grid variant="offset">
             {
               projects.map((project) => (
-                <li>
+                <li class="portfolio-item">
                   <PortfolioPreview project={project} />
                 </li>
               ))
@@ -156,7 +153,7 @@ const EXTA_ITEMS = [
           </Grid>
         </div>
 
-        <div class="cta fade-from-right-scroll">
+        <div class="cta fade-in">
           <CallToAction href="/work/">
             View All
             <Icon icon="arrow-right" size="1.2em" />
@@ -285,8 +282,6 @@ const EXTA_ITEMS = [
     }
   }
 
-  /* ====================================================== */
-
   .section {
     display: grid;
     gap: 2rem;
@@ -366,8 +361,6 @@ const EXTA_ITEMS = [
     }
   }
 
-  /* ====================================================== */
-
   .mention-card {
     display: flex;
     height: 7rem;
@@ -388,8 +381,6 @@ const EXTA_ITEMS = [
     }
   }
 
-  /* Enhancements */
-
   .knowledge-container {
     display: flex;
     flex-direction: column;
@@ -402,7 +393,6 @@ const EXTA_ITEMS = [
   }
 
   .pendulum-left {
-    /* transform: rotate(60deg); */
     transform-origin: top left;
     animation: rotateOnScroll 0.5s linear;
     animation-timeline: scroll(root);
@@ -410,12 +400,9 @@ const EXTA_ITEMS = [
     scroll-timeline-axis: vertical;
     scroll-timeline-start: 0%;
     scroll-timeline-end: 100%;
-
-    /* padding-left: 7.5rem; */
   }
 
   .pendulum-right {
-    /* transform: rotate(60deg); */
     margin-top: 4rem;
     display: flex;
     flex-direction: column;
@@ -427,12 +414,28 @@ const EXTA_ITEMS = [
     scroll-timeline-axis: vertical;
     scroll-timeline-start: 0%;
     scroll-timeline-end: 100%;
+  }
 
-    /* padding-right: 7.5rem; */
+  .fade-in-from-bottom {
+    animation: fade-in-from-bottom 0.5s linear;
+    animation-timeline: scroll(root);
+    scroll-timeline-name: fadeTimeLine;
+    scroll-timeline-axis: vertical;
+    scroll-timeline-start: 0%;
+    scroll-timeline-end: 100%;
   }
 
   .fade-from-right-scroll {
     animation: fade-from-right-scroll 0.5s linear;
+    animation-timeline: scroll(root);
+    scroll-timeline-name: fadeTimeLine;
+    scroll-timeline-axis: vertical;
+    scroll-timeline-start: 0%;
+    scroll-timeline-end: 100%;
+  }
+
+  .fade-in {
+    animation: fade-in 0.5s linear;
     animation-timeline: scroll(root);
     scroll-timeline-name: fadeTimeLine;
     scroll-timeline-axis: vertical;
@@ -460,51 +463,42 @@ const EXTA_ITEMS = [
   }
   .extra-list img {
     transition: 0.5s;
-    /* filter: brightness(0.1); */
     filter: grayscale(100%);
     border: 1px solid var(--gray-800);
   }
 
   .extra-list img:hover {
-    /* filter: brightness(1); */
     filter: grayscale(0%);
     transform: translateZ(200px);
   }
   .extra-list img:hover + img {
-    /* filter: brightness(0.6); */
     filter: grayscale(30%);
     transform: translateZ(150px) rotateY(20deg);
   }
   .extra-list img:hover + img + img {
-    /* filter: brightness(0.3); */
     filter: grayscale(60%);
     transform: translateZ(100px) rotateY(40deg);
   }
   .extra-list img:hover + img + img + img {
-    /* filter: brightness(0.1); */
     filter: grayscale(90%);
     transform: translateZ(50px) rotateY(0deg);
   }
 
   .extra-list img:has(+ img:hover) {
-    /* filter: brightness(0.6); */
     filter: grayscale(30%);
     transform: translateZ(150px) rotateY(-20deg);
   }
   .extra-list img:has(+ img + img:hover) {
-    /* filter: brightness(0.6); */
     filter: grayscale(60%);
     transform: translateZ(100px) rotateY(-40deg);
   }
   .extra-list img:has(+ img + img + img:hover) {
-    /* filter: brightness(0.6); */
     filter: grayscale(90%);
     transform: translateZ(50px) rotateY(0deg);
   }
 
   .animated-border {
-    /* margin: 0px auto; */
-    padding: 0.1em;
+    padding: 0.05em;
     width: 300px;
     background: transparent;
     text-align: center;
@@ -524,7 +518,6 @@ const EXTA_ITEMS = [
     height: 97%;
     width: 100%;
     background-image: conic-gradient(from var(--angle), transparent, #c561f6);
-    /* background: red; */
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -534,7 +527,6 @@ const EXTA_ITEMS = [
     animation: 3s spin linear infinite;
     opacity: 0.9;
   }
-  /* .card-1:hover::before{ */
   .animated-border::before {
     filter: blur(1.5rem);
     opacity: 0.8;
@@ -542,7 +534,6 @@ const EXTA_ITEMS = [
 
   .border-rainbow-glow {
     margin: 150px auto;
-    /* padding: 2em; */
     width: 300px;
     background: #1c1f2b;
     text-align: center;
@@ -563,7 +554,6 @@ const EXTA_ITEMS = [
       #414361,
       #da4167
     );
-    /* background: red; */
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -572,13 +562,11 @@ const EXTA_ITEMS = [
     border-radius: 10px;
     transition: all 0.5;
   }
-  /* .border-rainbow-glow:hover::before{ */
   .border-rainbow-glow::before {
     filter: blur(1.5rem);
     opacity: 0.8;
   }
 
-  /* Animations */
   @keyframes spin {
     from {
       --angle: 0deg;
@@ -618,13 +606,23 @@ const EXTA_ITEMS = [
     }
   }
 
-  /* @media (width < 1100px) {
-    .pendulum-left {
-      padding-left: 1rem;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
     }
+    20% {
+      opacity: 1;
+    }
+  }
 
-    .pendulum-right {
-      padding-right: 1rem;
+  @keyframes fade-in-from-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(150px);
     }
-  } */
+    50% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 </style>
