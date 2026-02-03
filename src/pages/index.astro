@@ -400,6 +400,9 @@ const EXTA_ITEMS = [
     scroll-timeline-axis: vertical;
     scroll-timeline-start: 0%;
     scroll-timeline-end: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .pendulum-right {
@@ -414,6 +417,7 @@ const EXTA_ITEMS = [
     scroll-timeline-axis: vertical;
     scroll-timeline-start: 0%;
     scroll-timeline-end: 100%;
+    text-align: right;
   }
 
   .fade-in-from-bottom {
@@ -445,6 +449,8 @@ const EXTA_ITEMS = [
 
   .frameworks-list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     margin-top: 16px;
   }

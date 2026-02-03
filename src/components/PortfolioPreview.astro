@@ -8,7 +8,7 @@ interface Props {
 const { data, slug } = Astro.props.project;
 ---
 
-<a class="card fade-in-from-bottom" href={`/work/${slug}`}>
+<a class="card fade-in-from-bottom" href={`/work/${slug}/`}>
   <span class="title">{data.title}</span>
   <img
     src={data.img}
