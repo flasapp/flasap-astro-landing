@@ -1,58 +1,155 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import ContactCTA from '../components/ContactCTA.astro';
-import Hero from '../components/Hero.astro';
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import MirrorTitle from "../components/MirrorTitle.astro";
+
+const FRAMEWORK_FRONT_ITEMS = [
+	{
+		name: "Astro",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+	{
+		name: "React",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR8XVWaf3-nrjVU68WepEwQgbW85ccZhWHOQ&s",
+	},
+	{
+		name: "Svelte",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+	{
+		name: "Vue",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+	{
+		name: "Angular",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+];
+
+const FRAMEWORK_BACK_ITEMS = [
+	{
+		name: "Node",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+	{
+		name: "Laravel",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+	{
+		name: "GO",
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj5J1hbK8RhvlQ6TRoXh9neTcRfu0ZVwI5jQ&s",
+	},
+];
 ---
 
-<BaseLayout title="About | Flavio Sacco" description="About Flavio Sacco Lorem Ipsum">
+<BaseLayout
+	title="About | Flavio Sacco"
+	description="About Flavio Sacco - Creative Developer"
+>
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
-				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+				title="Professional Profile"
+				tagline="Creative Developer & Tech Lead focused on high-performance digital experiences."
+				align="start"
 			>
 				<img
-					width="1553"
-					height="873"
-					src="/assets/at-work.jpg"
-					alt="Flavio Sacco at work with a colleague"
+					alt="Flavio Sacco smiling in a red plaid shirt and tortoise shell glasses"
+					class="profile-image"
+					src="/assets/flasap-image-web.jpeg"
 				/>
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Background</h2>
+				<h2 class="section-title">
+					<MirrorTitle text="Identity" />
+				</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+						I am <strong>Flavio Sacco</strong>, a high-impact
+						Creative Developer and Tech Lead from Montevideo,
+						Uruguay. I specialize in building visually stunning,
+						performant, and scalable digital experiences. With a
+						deep foundation in frontend and backend technologies, I
+						bridge the gap between creative design and robust
+						engineering.
 					</p>
 					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						My approach combines technical excellence with strategic
+						project management, ensuring that every project not only
+						looks premium but also delivers exceptional user value
+						and business results.
 					</p>
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Education</h2>
+				<h2 class="section-title">
+					<MirrorTitle text="Education" />
+				</h2>
 				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
+					<p>
+						<strong
+							>Degree in Creative Computing & Software Engineering</strong
+						> — Focused on high-performance web applications and interactive
+						design.
+					</p>
+					<p>
+						<strong>Ongoing Specialized Training</strong> — Continuous
+						mastery of evolving frameworks like Astro, Svelte, and cloud
+						architectures.
+					</p>
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Skills</h2>
+				<h2 class="section-title">
+					<MirrorTitle text="Tech Stack" />
+				</h2>
+				<div class="content stack gap-8">
+					<div class="stack gap-2">
+						<h5>Frontend Mastery</h5>
+						<div class="frameworks-list">
+							{
+								FRAMEWORK_FRONT_ITEMS.map((item) => (
+									<div class="pill-container">
+										<Pill>{item.name}</Pill>
+									</div>
+								))
+							}
+						</div>
+					</div>
+					<div class="stack gap-2">
+						<h5>Backend & Infrastructure</h5>
+						<div class="frameworks-list">
+							{
+								FRAMEWORK_BACK_ITEMS.map((item) => (
+									<div class="pill-container">
+										<Pill>{item.name}</Pill>
+									</div>
+								))
+							}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title">
+					<MirrorTitle text="Philosophy" />
+				</h2>
 				<div class="content">
-					<p>officia unde omnis</p>
+					<p>
+						I believe that code is an art form. My mission is to
+						build digital products that evoke emotion, drive
+						interaction, and leave a lasting impression. From
+						complex backend architectures to smooth
+						micro-animations, I craft every detail with precision.
+					</p>
 				</div>
 			</section>
 		</main>
@@ -68,10 +165,39 @@ import Hero from '../components/Hero.astro';
 		gap: 3.5rem;
 	}
 
-	img {
-		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
+	.profile-image {
+		display: block;
+		margin-inline: auto;
+		width: 100%;
+		max-width: 300px;
+		border-radius: 12px;
+		transition:
+			box-shadow 0.3s ease,
+			filter 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	.profile-image:hover {
+		box-shadow: 0 0 30px 10px rgba(197, 97, 246, 0.4);
+		filter: brightness(1.1);
+		transform: scale(1.02);
+	}
+
+	.hero-title-wrapper {
+		grid-column: 1;
+	}
+
+	.title-reveal {
+		font-size: var(--text-3xl);
+		font-weight: 700;
+		line-height: 1.1;
+		color: var(--gray-0);
+	}
+
+	@media (min-width: 50em) {
+		.title-reveal {
+			font-size: var(--text-5xl);
+		}
 	}
 
 	section {
@@ -91,15 +217,15 @@ import Hero from '../components/Hero.astro';
 		grid-column: 2 / 4;
 	}
 
-	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
+	.frameworks-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
+	h5 {
+		font-size: var(--text-lg);
+		color: var(--gray-100);
 	}
 
 	@media (min-width: 50em) {
@@ -110,6 +236,15 @@ import Hero from '../components/Hero.astro';
 
 		.about > :global(:first-child) {
 			grid-column-start: 2;
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+			align-items: center;
+			gap: 4rem;
+		}
+
+		.profile-image {
+			margin-top: 0;
+			justify-self: center;
 		}
 
 		section {

@@ -1,0 +1,50 @@
+---
+const { text } = Astro.props;
+---
+
+<div class="w-fit mx-auto mb-4">
+    <h1 class="texto-reflejo" data-text={text}>
+        {text}
+    </h1>
+</div>
+
+<style>
+    .texto-reflejo {
+        position: relative;
+        color: #c0c0c0; /* Color gris plateado */
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    /* El truco del reflejo */
+    .texto-reflejo::after {
+        content: attr(data-text); /* Copia el texto del atributo HTML */
+        position: absolute;
+        left: 0;
+        top: 90%; /* Ajusta qué tan cerca empieza el reflejo */
+        width: 100%;
+
+        /* Invertimos el texto verticalmente */
+        transform: scaleY(-1);
+
+        /* Aplicamos el desenfoque */
+        filter: blur(6px);
+
+        /* Creamos el degradado para que se desvanezca */
+        mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            transparent 80%
+        );
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            transparent 80%
+        );
+
+        opacity: 0.6; /* Transparencia general del reflejo */
+    }
+</style>

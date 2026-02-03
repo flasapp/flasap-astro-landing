@@ -1,3 +1,4 @@
+PassengerEnabled off
 RewriteEngine On
 
 # No redirigir si el host es my-wallet.flasap.com.uy
