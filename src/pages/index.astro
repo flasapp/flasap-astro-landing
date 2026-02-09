@@ -464,43 +464,52 @@ const EXTA_ITEMS = [
 
   .extra-list {
     gap: 0rem;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
+    overflow-x: hidden;
   }
+
+  @media (min-width: 50em) {
+    .extra-list {
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+    }
+  }
+
   .extra-list img {
     transition: 0.5s;
     filter: grayscale(100%);
     border: 1px solid var(--gray-800);
   }
 
-  .extra-list img:hover {
-    filter: grayscale(0%);
-    transform: translateZ(200px);
-  }
-  .extra-list img:hover + img {
-    filter: grayscale(30%);
-    transform: translateZ(150px) rotateY(20deg);
-  }
-  .extra-list img:hover + img + img {
-    filter: grayscale(60%);
-    transform: translateZ(100px) rotateY(40deg);
-  }
-  .extra-list img:hover + img + img + img {
-    filter: grayscale(90%);
-    transform: translateZ(50px) rotateY(0deg);
-  }
+  @media (min-width: 50em) {
+    .extra-list img:hover {
+      filter: grayscale(0%);
+      transform: translateZ(200px);
+    }
+    .extra-list img:hover + img {
+      filter: grayscale(30%);
+      transform: translateZ(150px) rotateY(20deg);
+    }
+    .extra-list img:hover + img + img {
+      filter: grayscale(60%);
+      transform: translateZ(100px) rotateY(40deg);
+    }
+    .extra-list img:hover + img + img + img {
+      filter: grayscale(90%);
+      transform: translateZ(50px) rotateY(0deg);
+    }
 
-  .extra-list img:has(+ img:hover) {
-    filter: grayscale(30%);
-    transform: translateZ(150px) rotateY(-20deg);
-  }
-  .extra-list img:has(+ img + img:hover) {
-    filter: grayscale(60%);
-    transform: translateZ(100px) rotateY(-40deg);
-  }
-  .extra-list img:has(+ img + img + img:hover) {
-    filter: grayscale(90%);
-    transform: translateZ(50px) rotateY(0deg);
+    .extra-list img:has(+ img:hover) {
+      filter: grayscale(30%);
+      transform: translateZ(150px) rotateY(-20deg);
+    }
+    .extra-list img:has(+ img + img:hover) {
+      filter: grayscale(60%);
+      transform: translateZ(100px) rotateY(-40deg);
+    }
+    .extra-list img:has(+ img + img + img:hover) {
+      filter: grayscale(90%);
+      transform: translateZ(50px) rotateY(0deg);
+    }
   }
 
   .animated-border {

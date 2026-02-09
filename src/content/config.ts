@@ -11,6 +11,7 @@ export const collections = {
 			technologies: z.array(z.string()).optional(),
 			img: z.string(),
 			img_alt: z.string().optional(),
+			url: z.string().optional(),
 		}),
 	}),
 };

@@ -50,10 +50,40 @@ const { Content } = await entry.render();
 				<div class="stack gap-10 content">
 					{
 						entry.data.img && (
-							<img
-								src={entry.data.img}
-								alt={entry.data.img_alt || ""}
-							/>
+							<div class="image-container">
+								{entry.data.url ? (
+									<a
+										href={entry.data.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="image-link"
+									>
+										<img
+											src={entry.data.img}
+											alt={entry.data.img_alt || ""}
+										/>
+									</a>
+								) : (
+									<img
+										src={entry.data.img}
+										alt={entry.data.img_alt || ""}
+									/>
+								)}
+								{entry.data.url && (
+									<a
+										href={entry.data.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="visit-link"
+									>
+										<Icon
+											icon="external-link"
+											size="0.9em"
+										/>
+										View website
+									</a>
+								)}
+							</div>
 						)
 					}
 					<div class="content">
@@ -166,6 +196,38 @@ const { Content } = await entry.render();
 	.content :global(a:hover),
 	.content :global(a:focus) {
 		text-decoration-color: currentColor;
+	}
+
+	.visit-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-top: 0.75rem;
+		color: var(--gray-400);
+		text-decoration: none;
+		font-size: var(--text-sm);
+		transition: color var(--theme-transition);
+	}
+
+	.visit-link:hover,
+	.visit-link:focus {
+		color: var(--accent-regular);
+	}
+
+	.image-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.image-link {
+		display: block;
+		cursor: pointer;
+		transition: opacity var(--theme-transition);
+	}
+
+	.image-link:hover {
+		opacity: 0.9;
 	}
 
 	@media (min-width: 50em) {
