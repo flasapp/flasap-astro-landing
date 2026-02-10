@@ -121,7 +121,7 @@ const EXTA_ITEMS = [
         </Hero>
         <div class="animated-border">
           <img
-            alt="Flavio Sacco smiling in a red plaid shirt and tortoise shell glasses"
+            alt="Flavio Sacco proffessional photo"
             style="border-radius: 12px"
             src="/assets/flasap-image-web.jpeg"
           />
@@ -519,6 +519,12 @@ const EXTA_ITEMS = [
     text-align: center;
     border-radius: 10px;
     position: relative;
+    opacity: 0;
+    /* Add an effect to display after 1s to avoid the imaage loading */
+    animation-name: fade-in-image;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
   }
   @property --angle {
     syntax: "<angle>";
@@ -638,6 +644,18 @@ const EXTA_ITEMS = [
     50% {
       transform: translateY(0px);
       opacity: 1;
+    }
+  }
+  @keyframes fade-in-image {
+    0% {
+      opacity: 0;
+      scale: 0.5;
+      /* transform: translateY(100px); */
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+      /* transform: translateY(0px); */
     }
   }
 </style>
